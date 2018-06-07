@@ -5,6 +5,7 @@ const Activity = require('../models/Activity')
 
 // Connect to Database
 mongoose.connect('mongodb://localhost/volunteer-app')
+  // mongoose.connect('mongodb://heroku_jqv0scnw:lo6hl1ut9k1s0tgg92vup1gum9@ds151530.mlab.com:51530/heroku_jqv0scnw')
   .then(() => {
     console.log('connected to mongoDB')
   })
