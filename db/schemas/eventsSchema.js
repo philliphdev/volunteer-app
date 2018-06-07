@@ -2,7 +2,7 @@ const Schema = require('mongoose').Schema
 
 const eventsSchema = new Schema({
     name: String,
-    description: Number,
+    description: String,
     location: String,
     startDate: Date,
     endDate: Date,

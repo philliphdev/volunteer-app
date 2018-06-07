@@ -16,80 +16,60 @@ mongoose.connect('mongodb://localhost/volunteer-app')
 Users.remove()
   .then(() => {
     const activity1 = new Activity({
-        name: String,
-        description: String,
-        location: String,
-        supplies: String,
-        contact: String,
-        hours: Number,
+        name: "Paint Bathroom",
+        description: "Paint bathroom blue 2 coats",
+        location: "3rd grade boys bathroom",
+        supplies: "Blue paint, Paint brushes, Paint trays ",
+        contact: "Mrs. Jones 3rd Grade Teacher",
+        hours: 5,
+      })
+      const activity2 = new Activity({
+        name: "Paint Bathroom",
+        description: "Paint bathroom pink 2 coats",
+        location: "3rd grade girls bathroom",
+        supplies: "Pink paint, Paint brushes, Paint trays ",
+        contact: "Mrs. Jones 3rd Grade Teacher",
+        hours: 5,
       })
     const event1 = new Events({
-        name: String,
-        description: Number,
-        location: String,
-        startDate: Date,
-        endDate: Date,
-        contact: String,
+        name: "Roswell Elementary School",
+        description: "Painting Bathrooms",
+        location: "Roswell Elementary School 12 Roswell Rd, Roswell",
+        startDate: 8/1/2018,
+        endDate: 8/1/2018,
+        contact: "Principal Curry",
         attended: Boolean,
-        activities: []
+        activities: [activity1, activity2]
     })
 
-    const event1 = new Events({
-        name: String,
-        description: Number,
-        location: String,
-        startDate: Date,
-        endDate: Date,
-        contact: String,
+    const event2 = new Events({
+        name: "Roswell Elementary School",
+        description: "Painting Bathrooms",
+        location: "Roswell Elementary School 12 Roswell Rd, Roswell",
+        startDate: 8/2/2018,
+        endDate: 8/2/2018,
+        contact: "Assistant Principal Vince",
         attended: Boolean,
-        activities: []
-    })
-    const event1 = new Events({
-        name: String,
-        description: Number,
-        location: String,
-        startDate: Date,
-        endDate: Date,
-        contact: String,
-        attended: Boolean,
-        activities: []
+        activities: [activity1, activity2]
     })
 
+  
+    const user1 = new Users({
+        name: "George Of Jungle",
+        age: 27,
+        email: "george@jungle.congo",
+        phone: 8002221000,
+        contactMethod: "email",
+        photo: "https://cdn.traileraddict.com/vidquad/walt-disney-pictures/george_of_the_jungle/1.jpg",
+        totalHours: 0,
+        events: [event1, event2]
+    })
+   
 
-    // create new test Homework data
-    const homework1 = new Homework({
-      title: 'Pirates Read/Create',
-      description: 'pirates',
-      subject: 'express',
-      createdBy: 'bob',
-      comments: [ comment1, comment2 ]
-    })
-    const homework2 = new Homework({
-      title: 'Pirates update/dleete',
-      description: 'more pirates',
-      subject: 'express',
-      createdBy: 'joof',
-      comments: [ comment1, comment2 ]
-    })
-    const homework3 = new Homework({
-      title: 'Pizza Express',
-      description: 'PIZZA',
-      subject: 'React',
-      createdBy: 'sal',
-      comments: [ comment1, comment2 ]
-    })
-    const homework4 = new Homework({
-      title: 'final project',
-      description: 'everything',
-      subject: 'rails',
-      createdBy: 'bryan',
-      comments: [ comment1, comment2 ]
-    })
-
-    const homeworks = [ homework1, homework2, homework3, homework4 ]
+    const usersArry = [ user1 ]
 
     // save test data
-    return Homework.insertMany(homeworks)
+    return Users.insertMany(usersArry)
   })
   .then(() => {
 
