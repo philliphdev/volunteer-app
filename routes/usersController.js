@@ -34,4 +34,28 @@ router.get('/:id', (req, res) => {
     })
 })
 
+// Edit Route
+router.get('/:id/edit', (req, res) => {
+  Users.findById(req.params.id)
+    .then((editUsers) => {
+      res.render('users/edit', {editUsers:  editUsers})
+    })
+})
+
+// Update Route
+router.put('/:id', (req, res) => {
+  Users.findByIdAndUpdate(req.params.id, req.body, { new: true }).then(() => {
+    // res.redirect(`/users/${req.params.id}`)
+    res.redirect(`/users/${req.params.id}`)
+  })
+})
+
+// Delete Route
+router.delete('/:id', (req, res) => {
+  Users.findByIdAndRemove(req.params.id)
+    .then(() => {
+      res.redirect('/users')
+    })
+})
+
 module.exports = router;
