@@ -1,9 +1,10 @@
-<h1>{{userProfile.name}}</h1>
-<p>Age: {{userProfile.age}}</p>
-<p>email: {{userProfile.email}}</p>
-<p>Preferred contact method: {{userProfile.contactMethod}}</p>
-<p>Total volunteer hours: {{userProfile.totalHours}}</p>
+<h1>{{listActivity.name}}</h1>
+<p>Age: {{listActivity.description}}</p>
+<p>location: {{listActivity.location}}</p>
+<p>Supplies : {{listActivity.supplies}}</p>
+<p>Contact : {{listActivity.contact}}</p>
+<p>Total volunteer hours: {{listActivity.totalHours}}</p>
 
-<form action="/users/{{userProfile._id}}?_method=DELETE" method="POST">
+<form action="/activities/{{listActivity._id}}?_method=DELETE" method="POST">
   <button type="submit">Delete User</button>
 </form>

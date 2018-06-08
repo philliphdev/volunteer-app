@@ -1,29 +1,34 @@
-<h1>Create New User</h1>
+<h1>Create New Event</h1>
 
-<form action="/users" method="POST">
+<form action="/events" method="POST">
   <div>
-    <label for="name">User Name</label>
-    <input type="text" name="name" placeholder="Name: First Last" />
+    <label for="name">Event Name</label>
+    <input type="text" name="name" placeholder="Event Name" />
   </div>
   <div>
-    <label for="age">Age</label>
-    <input type="number" name="age" placeholder="Age" />
+    <label for="description">Description</label>
+    <input type="text" name="description" placeholder="Description" />
   </div>
   <div>
-    <label for="email">email address</label>
-    <input type="email" name="email" placeholder="email@domain.name" />
+    <label for="location">Location</label>
+    <input type="text" name="location" placeholder="Location"/>
   </div>
   <div>
-    <label for="phone">Phone Number</label>
-    <input type="tel" name="phone" placeholder="1234567890" />
+    <label for="contact">Event Contact</label>
+    <input type="text" name="contact" placeholder="Event Contact Name" />
   </div>
   <div>
-    <label for="contactMethod">Preferred contact method</label>
-    <input type="text" name="contactMethod" placeholder="email or phone?" />
+    <label for="startDate">Event Start Date</label>
+    <input type="date" name="startDate" placeholder="Start Date" />
   </div>
     <div>
-    <label for="photo">Photo</label>
-    <input type="text" name="photo" placeholder="URL to photo" />
+    <label for="endDate">Event End Date</label>
+    <input type="date" name="endDate" placeholder="End Date" />
+  </div>
+    <div>
+    <label for="attended">Did you attend?</label>
+    <input type="boolean" name="attended" placeholder="Did you attended?" />
   </div>
   <button type="submit">Save User</button>
+</form>
 </form>

@@ -1,29 +1,29 @@
-<h1>Create New User</h1>
+<h1>Create New Activity</h1>
 
-<form action="/users" method="POST">
+<form action="/activities" method="POST">
   <div>
-    <label for="name">User Name</label>
-    <input type="text" name="name" placeholder="Name: First Last" />
+    <label for="name">Name</label>
+    <input type="text" name="name" value="{{newActivity.name}}" />
   </div>
   <div>
-    <label for="age">Age</label>
-    <input type="number" name="age" placeholder="Age" />
+    <label for="description">Description</label>
+    <input type="text" name="description" value="{{newActivity.description}}" />
   </div>
   <div>
-    <label for="email">email address</label>
-    <input type="email" name="email" placeholder="email@domain.name" />
+    <label for="location">Location</label>
+    <input type="location" name="location" value="{{newActivity.location}}"/>
   </div>
   <div>
-    <label for="phone">Phone Number</label>
-    <input type="tel" name="phone" placeholder="1234567890" />
+    <label for="supplies">Supplies</label>
+    <input type="text" name="supplies" value="{{newActivity.supplies}}" />
   </div>
   <div>
-    <label for="contactMethod">Preferred contact method</label>
-    <input type="text" name="contactMethod" placeholder="email or phone?" />
+    <label for="contact">Contact</label>
+    <input type="text" name="contact" value="{{newActivity.contact}}" />
   </div>
     <div>
-    <label for="photo">Photo</label>
-    <input type="text" name="photo" placeholder="URL to photo" />
+    <label for="hours">Hours</label>
+    <input type="text" name="hours" value="{{newActivity.hours}}" />
   </div>
-  <button type="submit">Save User</button>
+  <button type="submit">Creates Activity</button>
 </form>

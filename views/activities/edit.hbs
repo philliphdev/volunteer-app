@@ -1,29 +1,29 @@
-<h1>Edit User</h1>
+<h1>Edit Activity</h1>
 
-<form action="/users/{{editUsers._id}}?_method=PUT" method="POST">
+<form action="/activities/{{editActivity._id}}?_method=PUT" method="POST">
   <div>
-    <label for="name">User Name</label>
-    <input type="text" name="name" value="{{editUsers.name}}" />
+    <label for="name">Name</label>
+    <input type="text" name="name" value="{{editActivity.name}}" />
   </div>
   <div>
-    <label for="age">Age</label>
-    <input type="number" name="age" value="{{editUsers.age}}" />
+    <label for="description">Description</label>
+    <input type="text" name="description" value="{{editActivity.description}}" />
   </div>
   <div>
-    <label for="email">email address</label>
-    <input type="email" name="email" value="{{editUsers.email}}"/>
+    <label for="location">Location</label>
+    <input type="location" name="location" value="{{editActivity.location}}"/>
   </div>
   <div>
-    <label for="phone">Phone Number</label>
-    <input type="tel" name="phone" value="{{editUsers.phone}}" />
+    <label for="supplies">Supplies</label>
+    <input type="text" name="supplies" value="{{editActivity.supplies}}" />
   </div>
   <div>
-    <label for="contactMethod">Preferred contact method</label>
-    <input type="text" name="contactMethod" value="{{editUsers.contactMethod}}" />
+    <label for="contact">Contact</label>
+    <input type="text" name="contact" value="{{editActivity.contact}}" />
   </div>
     <div>
-    <label for="photo">Photo</label>
-    <input type="text" name="photo" value="{{editUsers.photo}}" />
+    <label for="hours">Hours</label>
+    <input type="text" name="hours" value="{{editActivity.hours}}" />
   </div>
-  <button type="submit">Save User</button>
+  <button type="submit">Save Activity</button>
 </form>
