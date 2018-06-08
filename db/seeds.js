@@ -22,7 +22,7 @@ Users.remove()
         location: "3rd grade boys bathroom",
         supplies: "Blue paint, Paint brushes, Paint trays ",
         contact: "Mrs. Jones 3rd Grade Teacher",
-        hours: 5,
+        hours: 5
       })
       const activity2 = new Activity({
         name: "Paint Bathroom",
@@ -30,7 +30,7 @@ Users.remove()
         location: "3rd grade girls bathroom",
         supplies: "Pink paint, Paint brushes, Paint trays ",
         contact: "Mrs. Jones 3rd Grade Teacher",
-        hours: 5,
+        hours: 5
       })
     const event1 = new Events({
         name: "Roswell Elementary School",

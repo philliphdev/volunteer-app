@@ -5,10 +5,12 @@ const Events = require('../models/Events')
 
 /* GET users events list. */
 router.get('/', (req, res, next) => {
-    Users.find({ name: req.params.name })
+    Users.findById(req.params.userId)
         .then((listOfUsers) => {
-            const listOfEvents = listOfUsers.events
-            res.render('events/index', { listOfEvents: listOfEvents })
+            console.log(listOfUsers)
+            listOfUsers.events
+            console.log("line 12 " + listOfEvents)
+            res.render('events/index', { listOfUsers: listOfUsers })
         })
         .catch((error) => res.send(error))
 
@@ -34,36 +36,39 @@ router.post('/', (req, res) => {
         })
 })
 
-// // Show Route
-// router.get('/:id', (req, res) => {
-//     Users.findById(req.params.id)
-//         .then((userProfile) => {
-//             res.render('users/show', { userProfile })
-//         })
-// })
+// Show Route
+router.get('/:id', (req, res) => {
+    Users.findById(req.params.userId)
+        .then((listEvent) => {
+            res.render('events/show', { listEvent })
+        })
+})
 
-// // Edit Route
-// router.get('/:id/edit', (req, res) => {
-//     Users.findById(req.params.id)
-//         .then((editUsers) => {
-//             res.render('users/edit', { editUsers: editUsers })
-//         })
-// })
+// Edit Route
+router.get('/:id/edit', (req, res) => {
+    Users.findById(req.params.UserId)
+        .then((editEvent) => {
+            res.render('events/edit', { editEvent: editEvent })
+        })
+})
 
-// // Update Route
-// router.put('/:id', (req, res) => {
-//     Users.findByIdAndUpdate(req.params.id, req.body, { new: true }).then(() => {
-//         // res.redirect(`/users/${req.params.id}`)
-//         res.redirect(`/users/${req.params.id}`)
-//     })
-// })
+// Update Route
+router.put('/:id', (req, res) => {
+    Users.findByIdAndUpdate(req.params.Id, req.body, { new: true }).then(() => {
+        // res.redirect(`/users/${req.params.id}`)
+        res.redirect(`/events/${req.params.id}`)
+    })
+})
 
 // Delete Route
 router.delete('/:id/events', (req, res) => {
     Users.findById(req.params.userId)
-        .then((newEvent.events.remove) => {
-            newEvent.events.push(newEventEntry)
+        .then((newEvent) => {
+            newEvent.events.push(newEvent)
         })
+        // .then((newEvent.events.remove) => {
+        //     newEvent.events.push(newEventEntry)
+        // })
 })
 
 module.exports = router
