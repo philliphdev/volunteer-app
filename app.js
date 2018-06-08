@@ -10,7 +10,7 @@ const mongoose = require('mongoose');
 const indexRouter = require('./routes/indexController')
 const usersRouter = require('./routes/usersController')
 const eventsRouter = require('./routes/eventsController')
-// const activitiesRouter = require('./routes/activitiesController')
+const activitiesRouter = require('./routes/activitiesController')
 const methodOverride = require('method-override')
 
 const app = express();
@@ -37,7 +37,8 @@ app.use(methodOverride('_method'))
 app.use('/', indexRouter)
 app.use('/users', usersRouter)
 app.use('/users/:userId/events', eventsRouter)
-// app.use('/users/:userId/events/activities', activitiesRouter)
+// app.use('/users/:userId/events/:userId', eventsRouter)
+app.use('/users/:userId/events/activities', activitiesRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

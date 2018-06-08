@@ -8,9 +8,12 @@ router.get('/', (req, res, next) => {
     Users.findById(req.params.userId)
         .then((listOfUsers) => {
             console.log(listOfUsers)
-            listOfUsers.events
+            const listOfEvents = listOfUsers.events
             console.log("line 12 " + listOfEvents)
-            res.render('events/index', { listOfUsers: listOfUsers })
+            res.render('events/index', { 
+                listOfEvents: listOfEvents,
+                userId: req.params.userId
+            })
         })
         .catch((error) => res.send(error))
 
@@ -38,9 +41,18 @@ router.post('/', (req, res) => {
 
 // Show Route
 router.get('/:id', (req, res) => {
-    Users.findById(req.params.userId)
-        .then((listEvent) => {
-            res.render('events/show', { listEvent })
+    const eventId = req.params.id
+    const userId = req.params.userId
+    Users.findById(userId)
+        .then(user => {
+            const event = user.events.id(eventId)
+            // console.log(eventId)
+            console.log(event)
+            res.render('events/show', { event })
+        })
+        .catch((error) => {
+            console.log(error)
+            res.send(error)
         })
 })
 

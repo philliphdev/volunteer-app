@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router({ mergeParams: true });
 const Users = require('../models/Users')
 const Events = require('../models/Events')
-const Activities = require('../models/Activities')
+const Activities = require('../models/Activity')
 
 /* GET users events activity list. */
 router.get('/', (req, res, next) => {

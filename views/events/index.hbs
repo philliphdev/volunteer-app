@@ -1,10 +1,14 @@
 <h1>Events</h1>
 <ul>
-  {{#each listOfEvents}}
+  {{!-- {{#each listOfUsers}} --}}
+  {{#each listOfEvents}} 
   <li>
-    <a href="/users/{{_id}}">
-      <p>{{events.name}}</p>
-    </a>
+    <a href="/users/{{../userId}}/events/{{_id}}">
+      <p>{{name}}</p>
+       </a>
+      <p>{{description}}</p>
+      <p>{{location}}</p>
   </li>
   {{/each}}
+  {{!-- {{/each}} --}}
 </ul>

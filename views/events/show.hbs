@@ -1,12 +1,12 @@
-<h1>{{listEvent.name}}</h1>
-<p>Description: {{listEvent.description}}</p>
-<p>Location: {{listEvent.location}}</p>
-<p>Start Date: {{listEvent.startDate}}</p>
-<p>End Date: {{listEvent.endDate}}</p>
-<p>Contact: {{listEvent.contact}}</p>
-<p>Attended: {{listEvent.attended}}</p>
+<h1>{{event.name}}</h1>
+<p>Description: {{event.description}}</p>
+<p>Location: {{event.location}}</p>
+<p>Start Date: {{event.startDate}}</p>
+<p>End Date: {{event.endDate}}</p>
+<p>Contact: {{event.contact}}</p>
+<p>Attended: {{event.attended}}</p>
 
-<form action="/users/{{listEvent._id}}?_method=DELETE" method="POST">
+<form action="/users/{{event._id}}?_method=DELETE" method="POST">
   <button type="submit">Delete Event</button>
 </form>
 
