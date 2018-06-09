@@ -2,11 +2,11 @@
 <div class="userPage">
   <ul>
     {{#each listOfUsers}}
-    <div class="test">
+    <div>
       <li>
         <div class="card">
           <div class="waves-effect waves-block waves-light">
-            <img class="activator circle responsive-img" src="https://philliphdev.github.io/philliphannaford/me.png">
+            <img class="activator circle responsive-img" src="{{this.photo}}">
           </div>
           <div class="card-content">
             <span class="card-title activator grey-text text-darken-4">{{name}}

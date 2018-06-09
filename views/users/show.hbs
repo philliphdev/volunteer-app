@@ -1,8 +1,25 @@
-<h1>{{userProfile.name}}</h1>
-<p>Age: {{userProfile.age}}</p>
-<p>email: {{userProfile.email}}</p>
-<p>Preferred contact method: {{userProfile.contactMethod}}</p>
-<p>Total volunteer hours: {{userProfile.totalHours}}</p>
+<div>
+
+  <div class="col s12 m7">
+    <h2 class="header">{{userProfile.name}}</h2>
+    <div class="card horizontal">
+      <div class="card">
+        <img class="activator circle responsive-img" src="{{userProfile.photo}}">
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <h5>Age: {{userProfile.age}}</h5>
+          <h5>email: {{userProfile.email}}</h5>
+          <h5>Preferred contact method: {{userProfile.contactMethod}}</h5>
+          <h5>Total volunteer hours: {{userProfile.totalHours}}</h5>
+        </div>
+        <div class="card-action">
+          <a href="/users/{{userProfile._id}}/edit">Edit Profile</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <form action="/users/{{userProfile._id}}?_method=DELETE" method="POST">
   <button type="submit">Delete User</button>
