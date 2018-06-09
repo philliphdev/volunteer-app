@@ -1,5 +1,4 @@
 const Schema = require('mongoose').Schema
-
 const activitySchema = new Schema ({
     name: String,
     description: String,

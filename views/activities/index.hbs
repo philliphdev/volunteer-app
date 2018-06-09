@@ -1,9 +1,9 @@
 <h1>Activities</h1>
 <ul>
-  {{#each listOfActivities}}
+  {{#each activity}}
   <li>
     <a href="/users/{{_id}}">
-      <p>{{name}}</p>
+      <p>{{activity.name}}</p>
     </a>
   </li>
   {{/each}}

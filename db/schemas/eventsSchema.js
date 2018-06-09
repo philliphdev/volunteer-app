@@ -1,4 +1,5 @@
 const Schema = require('mongoose').Schema
+const activitySchema = require('./activitySchema')
 
 const eventsSchema = new Schema({
     name: String,
@@ -8,7 +9,7 @@ const eventsSchema = new Schema({
     endDate: Date,
     contact: String,
     attended: Boolean,
-    activities: []
+    activities: [activitySchema]
 })
 
 module.exports = eventsSchema

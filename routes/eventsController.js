@@ -7,9 +7,7 @@ const Events = require('../models/Events')
 router.get('/', (req, res, next) => {
     Users.findById(req.params.userId)
         .then((listOfUsers) => {
-            console.log(listOfUsers)
             const listOfEvents = listOfUsers.events
-            console.log("line 12 " + listOfEvents)
             res.render('events/index', { 
                 listOfEvents: listOfEvents,
                 userId: req.params.userId
@@ -58,9 +56,12 @@ router.get('/:id', (req, res) => {
 
 // Edit Route
 router.get('/:id/edit', (req, res) => {
-    Users.findById(req.params.UserId)
-        .then((editEvent) => {
-            res.render('events/edit', { editEvent: editEvent })
+    const eventId = req.params.id
+    const userId = req.params.userId
+    Users.findById(userId)
+        .then(user => {
+            const event = user.events.id(eventId)
+            res.render('events/edit', { event })
         })
 })
 

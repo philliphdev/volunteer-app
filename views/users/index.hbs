@@ -1,10 +1,70 @@
-<h1>Users</h1>
-<ul>
-  {{#each listOfUsers}}
-  <li>
-    <a href="/users/{{_id}}">
-      <p>{{name}}</p>
-    </a>
-  </li>
-  {{/each}}
-</ul>
+<h3>Users</h3>
+<div class="userPage">
+  <ul>
+    {{#each listOfUsers}}
+    <div class="test">
+      <li>
+        <div class="card">
+          <div class="waves-effect waves-block waves-light">
+            <img class="activator circle responsive-img" src="https://philliphdev.github.io/philliphannaford/me.png">
+          </div>
+          <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4">{{name}}
+              <i class="material-icons right">more_vert</i>
+            </span>
+            <p>
+              <a href="/users/{{this._id}}">View Profile</a>
+            </p>
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">{{name}}
+              <i class="material-icons right">close</i>
+            </span>
+            <p>Here is some more information about this product that is only revealed once clicked on.</p>
+          </div>
+        </div>
+      </li>
+    </div>
+    {{/each}}
+  </ul>
+  <div class="box d">
+    <div class="col s12 m7">
+      <h5 class="header">Events</h5>
+      <div class="card horizontal">
+        <div class="card-image">
+          <img src="https://lorempixel.com/100/190/nature/6">
+        </div>
+        <div class="card-stacked">
+          <div class="card-content">
+            <p>name {{name}}</p>
+            <p>description {{description}}</p>
+            <p>date {{startDate}} - {{endDate}}</p>
+          </div>
+          <div class="card-action">
+            <a href="#">View all Events</a>
+          </div>
+        </div>
+      </div>
+    </div>
+      <div class="col s12 m7">
+    <h5 class="header">Event Activities</h5>
+    <div class="card horizontal">
+      <div class="card-image">
+        <img src="https://lorempixel.com/100/190/nature/6">
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <p>name {{name}}</p>
+          <p>description {{description}}</p>
+          <p>Hours {{hours}}</p>
+        </div>
+        <div class="card-action">
+          <a href="#">View all Activities</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  </div>
+</div>

@@ -37,12 +37,11 @@ app.use(methodOverride('_method'))
 app.use('/', indexRouter)
 app.use('/users', usersRouter)
 app.use('/users/:userId/events', eventsRouter)
-// app.use('/users/:userId/events/:userId', eventsRouter)
-app.use('/users/:userId/events/activities', activitiesRouter)
+app.use('/users/:userId/events/:eventId/activities', activitiesRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  next(createError(404));
+  next(createError(404))
 });
 
 // error handler
