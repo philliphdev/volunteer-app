@@ -46,6 +46,20 @@ body {
   grid-template-columns: 1fr 6fr;
 }
 
+.eventgridx {
+  display: flex;
+  flex-direction: row;
+
+}
+.pages {
+  display: flex;
+
+
+}
+.pageList {
+  padding: .5em;
+}
+
 
 a {
   color: #00B7FF;

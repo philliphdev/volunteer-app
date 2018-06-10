@@ -6,7 +6,7 @@
       <li>
         <div class="card">
           <div class="waves-effect waves-block waves-light">
-            <img class="activator circle responsive-img" src="{{this.photo}}">
+            <img class="activator circle responsive-img" src="{{photo}}">
           </div>
           <div class="card-content">
             <span class="card-title activator grey-text text-darken-4">{{name}}
@@ -41,7 +41,7 @@
             <p>date {{startDate}} - {{endDate}}</p>
           </div>
           <div class="card-action">
-            <a href="#">View all Events</a>
+            <a href="/users/{{this._id}}/events">View Events</a>
           </div>
         </div>
       </div>
@@ -59,7 +59,7 @@
           <p>Hours {{hours}}</p>
         </div>
         <div class="card-action">
-          <a href="#">View all Activities</a>
+          <a href="/users/{{this._id}}/events">View all Activities</a>
         </div>
       </div>
     </div>
