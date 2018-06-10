@@ -10,10 +10,10 @@ router.get('/', (req, res, next) => {
     const userId = req.params.userId
     console.log(userId)
     console.log(eventId)
-    Users.findById(userId)
+    Users.findById(eventId)
         .then(user => {
             const activity = user.events.activities.id
-            console.log(activity)
+            console.log("line 16 " + activity)
             res.render('activities/index', { 
                 activity: activity,
                 activityId: eventId

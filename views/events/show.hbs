@@ -1,12 +1,27 @@
-<h1>{{event.name}}</h1>
-<p>Description: {{event.description}}</p>
-<p>Location: {{event.location}}</p>
-<p>Start Date: {{event.startDate}}</p>
-<p>End Date: {{event.endDate}}</p>
-<p>Contact: {{event.contact}}</p>
-<p>Attended: {{event.attended}}</p>
-
-<form action="/users/{{event._id}}?_method=DELETE" method="POST">
-  <button type="submit">Delete Event</button>
-</form>
-
+<h2>{{event.name}}</h2>
+<div class="eventgrid">
+  <div class="col s12 m7">
+    <h4 class="header">{{name}}</h4>
+    <div class="card horizontal">
+      <div class="card-image">
+        <img src="http://www.geocities.ws/smyrnavolunteers/Keep%20Smyrna%20Beautiful/Highlands%20Day%20of%20Caring/thumbs/ECCC%20Highlands%20Event%20016.JPG">
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <ul>
+            <li>Name: {{event.description}}</li>
+            <li>Location: {{event.location}}</li>
+            <li>Start Date: {{event.startDate}}</li>
+            <li>End Date: {{event.endDate}}</li>
+            <li>Contact: {{event.contact}}</li>
+            <li>Attended: {{event.attended}}</li>
+          </ul>
+        </div>
+        <div class="card-action">
+          <form action="/users/{{event._id}}?_method=DELETE" method="POST">
+            <button type="submit">Delete Event</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
