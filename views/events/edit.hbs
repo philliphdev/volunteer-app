@@ -1,33 +1,36 @@
-<h1>Edit Event</h1>
-
-<form action="/users/{{event._id}}?_method=PUT" method="POST">
-  <div>
-    <label for="name">Event Name</label>
-    <input type="text" name="name" value="{{event.name}}" />
+<div class="page">
+  <div class="pageForms">
+    <h3>Edit Event</h3>
+    <form action="/users/{{event._id}}?_method=PUT" method="POST">
+      <div>
+        <label for="name">Event Name</label>
+        <input type="text" name="name" value="{{event.name}}" />
+      </div>
+      <div>
+        <label for="description">Description</label>
+        <input type="text" name="description" value="{{event.description}}" />
+      </div>
+      <div>
+        <label for="location">Location</label>
+        <input type="text" name="location" value="{{event.location}}" />
+      </div>
+      <div>
+        <label for="contact">Event Contact</label>
+        <input type="text" name="contact" value="{{event.contact}}" />
+      </div>
+      <div>
+        <label for="startDate">Event Start Date</label>
+        <input type="date" name="startDate" value="{{event.startDate}}" />
+      </div>
+      <div>
+        <label for="endDate">Event End Date</label>
+        <input type="date" name="endDate" value="{{event.endDate}}" />
+      </div>
+      <div>
+        <label for="attended">Did you attend?</label>
+        <input type="boolean" name="attended" value="{{event.attended}}" />
+      </div>
+      <button class="waves-effect waves-light red lighten-2 btn" type="submit">Save Event</button>
+    </form>
   </div>
-  <div>
-    <label for="description">Description</label>
-    <input type="text" name="description" value="{{event.description}}" />
-  </div>
-  <div>
-    <label for="location">Location</label>
-    <input type="text" name="location" value="{{event.location}}"/>
-  </div>
-  <div>
-    <label for="contact">Event Contact</label>
-    <input type="text" name="contact" value="{{event.contact}}" />
-  </div>
-  <div>
-    <label for="startDate">Event Start Date</label>
-    <input type="date" name="startDate" value="{{event.startDate}}" />
-  </div>
-    <div>
-    <label for="endDate">Event End Date</label>
-    <input type="date" name="endDate" value="{{event.endDate}}" />
-  </div>
-    <div>
-    <label for="attended">Did you attend?</label>
-    <input type="boolean" name="attended" value="{{event.attended}}" />
-  </div>
-  <button type="submit">Save Event</button>
-</form>
+</div>

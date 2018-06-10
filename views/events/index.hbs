@@ -1,4 +1,5 @@
 <h3>Events</h3>
+<a href="/users/{{../userId}}/events/new">New Event</a>
 <ul>
   {{#each listOfEvents}}
   <div class="eventgrid">
@@ -21,9 +22,12 @@
           </div>
           <div class="card-action">
             <a href="/users/{{../userId}}/events/{{_id}}">Show Event</a>
+            <a href="/users/{{../userId}}/events/{{_id}}/edit">Edit Event</a>
+            <a href="/users/{{../userId}}/events/new">Add Event</a>
           </div>
         </div>
       </div>
     </div>
     {{/each}}
 </ul>
+<a href="/users/{{../userId}}/events/new">New Event</a>

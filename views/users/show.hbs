@@ -1,6 +1,6 @@
 <div>
   <div class="col s12 m7">
-    <h2 class="header">{{userProfile.name}}</h2>
+    <h3 class="header">{{userProfile.name}}</h3>
     <div class="card horizontal">
       <div class="card showCard">
         <img class="activator circle responsive-img userCards" src="{{userProfile.photo}}">
@@ -13,11 +13,13 @@
           <h5>Total volunteer hours: {{userProfile.totalHours}}</h5>
         </div>
         <div class="card-action">
-           <a href="/users/{{userProfile._id}}/events">View Events</a>
+          <a href="/users/{{userProfile._id}}/events">View Events</a>
           <a href="/users/{{userProfile._id}}/edit">Edit Profile</a>
-          <a href="/users/{{userProfile._id}}?_method=DELETE" method="POST">Delete Profile</a>
         </div>
       </div>
     </div>
   </div>
+  <form action="/users/{{userProfile._id}}?_method=DELETE" method="POST">
+    <button class="waves-effect waves-light red btn" type="submit">Delete Profile</button>
+  </form>
 </div>

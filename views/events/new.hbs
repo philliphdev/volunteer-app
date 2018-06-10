@@ -1,34 +1,36 @@
-<h1>Create New Event</h1>
-
-<form action="/events" method="POST">
-  <div>
-    <label for="name">Event Name</label>
-    <input type="text" name="name" placeholder="Event Name" />
+<div class="page">
+  <div class="pageForms">
+    <h3>Create New Event</h3>
+    <form action="/events" method="POST">
+      <div>
+        <label for="name">Event Name</label>
+        <input type="text" name="name" placeholder="Event Name" />
+      </div>
+      <div>
+        <label for="description">Description</label>
+        <input type="text" name="description" placeholder="Description" />
+      </div>
+      <div>
+        <label for="location">Location</label>
+        <input type="text" name="location" placeholder="Location" />
+      </div>
+      <div>
+        <label for="contact">Event Contact</label>
+        <input type="text" name="contact" placeholder="Event Contact Name" />
+      </div>
+      <div>
+        <label for="startDate">Event Start Date</label>
+        <input type="date" name="startDate" placeholder="Start Date" />
+      </div>
+      <div>
+        <label for="endDate">Event End Date</label>
+        <input type="date" name="endDate" placeholder="End Date" />
+      </div>
+      <div>
+        <label for="attended">Did you attend?</label>
+        <input type="boolean" name="attended" placeholder="Did you attended?" />
+      </div>
+      <button type="submit" class="waves-effect waves-light red lighten-2 btn">Save Event</button>
+    </form>
   </div>
-  <div>
-    <label for="description">Description</label>
-    <input type="text" name="description" placeholder="Description" />
-  </div>
-  <div>
-    <label for="location">Location</label>
-    <input type="text" name="location" placeholder="Location"/>
-  </div>
-  <div>
-    <label for="contact">Event Contact</label>
-    <input type="text" name="contact" placeholder="Event Contact Name" />
-  </div>
-  <div>
-    <label for="startDate">Event Start Date</label>
-    <input type="date" name="startDate" placeholder="Start Date" />
-  </div>
-    <div>
-    <label for="endDate">Event End Date</label>
-    <input type="date" name="endDate" placeholder="End Date" />
-  </div>
-    <div>
-    <label for="attended">Did you attend?</label>
-    <input type="boolean" name="attended" placeholder="Did you attended?" />
-  </div>
-  <button type="submit">Save User</button>
-</form>
-</form>
+</div>

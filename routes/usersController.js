@@ -38,7 +38,7 @@ router.get('/:id', (req, res) => {
 router.get('/:id/edit', (req, res) => {
   Users.findById(req.params.id)
     .then((editUsers) => {
-      res.render('users/edit', {editUsers:  editUsers})
+      res.render('users/edit', { editUsers: editUsers })
     })
 })
 
@@ -52,10 +52,13 @@ router.put('/:id', (req, res) => {
 
 // Delete Route
 router.delete('/:id', (req, res) => {
+  const userId = req.params.id
   Users.findByIdAndRemove(req.params.id)
     .then(() => {
+      console.log("Delete id")
       res.redirect('/users')
     })
+    .catch((err) => res.send(err))
 })
 
 module.exports = router;
