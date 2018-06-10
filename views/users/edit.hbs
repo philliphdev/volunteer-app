@@ -1,5 +1,6 @@
+<div class="page">
+<div class="pageForms">
 <h1>Edit User</h1>
-
 <form action="/users/{{editUsers._id}}?_method=PUT" method="POST">
   <div>
     <label for="name">User Name</label>
@@ -25,5 +26,7 @@
     <label for="photo">Photo</label>
     <input type="text" name="photo" value="{{editUsers.photo}}" />
   </div>
-  <button type="submit">Save User</button>
+  <button class="waves-effect waves-light red lighten-2 btn" type="submit">Save User</button>
 </form>
+</div>
+</div>
