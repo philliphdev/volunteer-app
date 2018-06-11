@@ -1,10 +1,28 @@
-<h1>{{listActivity.name}}</h1>
-<p>Age: {{listActivity.description}}</p>
-<p>location: {{listActivity.location}}</p>
-<p>Supplies : {{listActivity.supplies}}</p>
-<p>Contact : {{listActivity.contact}}</p>
-<p>Total volunteer hours: {{listActivity.totalHours}}</p>
+<h3>Activity</h3>
+<div class="eventgrid">
+  <div class="col s12 m7">
+    <h4 class="header">{{activity.name}}</h4>
+    <div class="card horizontal">
+      <div class="card-image">
+        <img src="http://www.geocities.ws/smyrnavolunteers/Keep%20Smyrna%20Beautiful/Highlands%20Day%20of%20Caring/thumbs/ECCC%20Highlands%20Event%20016.JPG">
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <ul>
+            <li>Name: {{activity.description}}</li>
+            <li>Location: {{activity.location}}</li>
+            <li>Start Date: {{activity.startDate}}</li>
+            <li>End Date: {{activity.endDate}}</li>
+            <li>Contact: {{activity.contact}}</li>
+            <li>Attended: {{activity.attended}}</li>
+          </ul>
+        </div>
+        <div class="card-action">
+          <a href="/users/{{userId}}/events/{{event._id}}/activities">Show Activities</a>
+          <a href="/users/{{userId}}/events/{{eventId}}/activities/{{activity._id}}/delete">Delete</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<form action="/activities/{{listActivity._id}}?_method=DELETE" method="POST">
-  <button type="submit">Delete User</button>
-</form>

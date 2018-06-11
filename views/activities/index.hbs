@@ -1,17 +1,6 @@
-<h1>Activities</h1>
+<h3>{{event.name}} - Activities</h3>
 <ul>
-  {{#each activity}}
-  <li>
-    <a href="/users/{{_id}}">
-      <p>{{activity.name}}</p>
-    </a>
-  </li>
-  {{/each}}
-</ul>
-
-<h3>Events</h3>
-<ul>
-  {{#each activity}}
+  {{#each event.activities}}
   <div class="eventgrid">
     <div class="col s12 m7">
       <h4 class="header">{{name}}</h4>
@@ -31,7 +20,7 @@
             </li>
           </div>
           <div class="card-action">
-            <a href="/users/{{../userId}}/events/{{_id}}">Show Event</a>
+            <a href="/users/{{../userId}}/events/{{../eventId}}/activities/{{_id}}">Show Activity</a>
           </div>
         </div>
       </div>

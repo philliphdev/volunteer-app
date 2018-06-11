@@ -45,10 +45,9 @@ router.get('/:id/edit', (req, res) => {
 // Update Route
 router.put('/:id', (req, res) => {
   Users.findByIdAndUpdate(req.params.id, req.body, { new: true })
-  .then(() => {
-    console.log("Users line 48")
-    res.redirect(`/users/${req.params.id}`)
-  })
+    .then(() => {
+      res.redirect(`/users/${req.params.id}`)
+    })
 })
 
 // Delete Route
@@ -56,7 +55,6 @@ router.delete('/:id', (req, res) => {
   const userId = req.params.id
   Users.findByIdAndRemove(req.params.id)
     .then(() => {
-      console.log("Delete id")
       res.redirect('/users')
     })
     .catch((err) => res.send(err))

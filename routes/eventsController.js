@@ -19,7 +19,6 @@ router.get('/', (req, res, next) => {
 
 // New Route
 router.get('/new', (req, res) => {
-    // const userId = req.params.userId
     res.render('events/new', {
         userId: req.params.userId
     })
@@ -47,8 +46,6 @@ router.get('/:eventId', (req, res) => {
     Users.findById(userId)
         .then(user => {
             const event = user.events.id(eventId)
-            // console.log(eventId)
-            console.log(event)
             res.render('events/show', {
                 event,
                 userId
@@ -76,7 +73,6 @@ router.put('/:eventId', (req, res) => {
     const userId = req.params.userId
     const eventId = req.params.eventId
     const updateEvent = req.body
-    console.log("line 78 " + userId)
 
     Users.findByIdAndUpdate(userId)
         .then((userEvent) => {
@@ -84,7 +80,7 @@ router.put('/:eventId', (req, res) => {
 
             event.name = updateEvent.name
             event.description = updateEvent.description
-            event.location = updateEvent.location 
+            event.location = updateEvent.location
             event.startDate = updateEvent.startDate
             event.endDate = updateEvent.endDate
             event.contact = updateEvent.contact
@@ -92,8 +88,8 @@ router.put('/:eventId', (req, res) => {
             event.activities = updateEvent.activities
 
             return userEvent.save()
-        })    
-        .then(() => { 
+        })
+        .then(() => {
             res.redirect(`/users/${userId}/events`)
         })
         .catch((error) => {

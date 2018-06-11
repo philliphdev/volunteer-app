@@ -10,14 +10,15 @@ router.get('/', (req, res, next) => {
     const userId = req.params.userId
     console.log(userId)
     console.log(eventId)
-    Users.findById(eventId)
-        .then(user => {
-            const activity = user.events.activities.id
-            console.log("line 16 " + activity)
-            res.render('activities/index', { 
-                activity: activity,
-                activityId: eventId
-             })
+    Users.findById(userId)
+        .then((user) => {
+            const event = user.events.id(eventId)
+            console.log("line 16 ", event)
+            res.render('activities/index', {
+                event,
+                userId,
+                eventId
+            })
         })
         .catch((error) => res.send(error))
 
@@ -45,9 +46,14 @@ router.post('/', (req, res) => {
 
 // Show Route
 router.get('/:id', (req, res) => {
-    Users.findById(req.params.userId)
-        .then((listActivity) => {
-            res.render('activities/show', { listActivity })
+    const userId = req.params.userId
+    const eventId = req.params.eventId
+    const activityId = req.params.id
+    Users.findById(userId)
+        .then((user) => {
+            const event = user.events.id(eventId)
+            const activity = event.activities.id(activityId)
+            res.render('activities/show', { activity, eventId, userId })
         })
 })
 
@@ -73,9 +79,9 @@ router.delete('/:id/activities', (req, res) => {
         .then((deleteActivity) => {
             deleteActivity.activities.push(deleteActivity)
         })
-        // .then((newEvent.events.remove) => {
-        //     newEvent.events.push(newEventEntry)
-        // })
+    // .then((newEvent.events.remove) => {
+    //     newEvent.events.push(newEventEntry)
+    // })
 })
 
 module.exports = router
