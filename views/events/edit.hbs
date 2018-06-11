@@ -1,7 +1,7 @@
 <div class="page">
   <div class="pageForms">
     <h3>Edit Event</h3>
-    <form action="/users/{{event._id}}?_method=PUT" method="POST">
+    <form action="/users/{{userId}}/events/{{event._id}}?_method=PUT" method="POST">
       <div>
         <label for="name">Event Name</label>
         <input type="text" name="name" value="{{event.name}}" />
@@ -26,10 +26,7 @@
         <label for="endDate">Event End Date</label>
         <input type="date" name="endDate" value="{{event.endDate}}" />
       </div>
-      <div>
-        <label for="attended">Did you attend?</label>
-        <input type="boolean" name="attended" value="{{event.attended}}" />
-      </div>
+
       <button class="waves-effect waves-light red lighten-2 btn" type="submit">Save Event</button>
     </form>
   </div>

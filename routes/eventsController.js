@@ -8,7 +8,7 @@ router.get('/', (req, res, next) => {
     Users.findById(req.params.userId)
         .then((listOfUsers) => {
             const listOfEvents = listOfUsers.events
-            res.render('events/index', { 
+            res.render('events/index', {
                 listOfEvents: listOfEvents,
                 userId: req.params.userId
             })
@@ -41,16 +41,18 @@ router.post('/', (req, res) => {
 })
 
 // Show Route
-router.get('/:id', (req, res) => {
-    const eventId = req.params.id
+router.get('/:eventId', (req, res) => {
+    const eventId = req.params.eventId
     const userId = req.params.userId
     Users.findById(userId)
         .then(user => {
             const event = user.events.id(eventId)
             // console.log(eventId)
             console.log(event)
-            res.render('events/show', { event,
-            userId })
+            res.render('events/show', {
+                event,
+                userId
+            })
         })
         .catch((error) => {
             console.log(error)
@@ -59,40 +61,62 @@ router.get('/:id', (req, res) => {
 })
 
 // Edit Route
-router.get('/:id/edit', (req, res) => {
-    const eventId = req.params.id
+router.get('/:eventId/edit', (req, res) => {
+    const eventId = req.params.eventId
     const userId = req.params.userId
     Users.findById(userId)
         .then(user => {
             const event = user.events.id(eventId)
-            res.render('events/edit', { event })
+            res.render('events/edit', { event, userId })
         })
 })
 
 // Update Route
-router.put('/:id', (req, res) => {
-    Users.findByIdAndUpdate(req.params.Id, req.body, { new: true }).then(() => {
-        // res.redirect(`/users/${req.params.id}`)
-        res.redirect(`/events/${req.params.id}`)
-    })
+router.put('/:eventId', (req, res) => {
+    const userId = req.params.userId
+    const eventId = req.params.eventId
+    const updateEvent = req.body
+    console.log("line 78 " + userId)
+
+    Users.findByIdAndUpdate(userId)
+        .then((userEvent) => {
+            const event = userEvent.events.id(eventId)
+
+            event.name = updateEvent.name
+            event.description = updateEvent.description
+            event.location = updateEvent.location 
+            event.startDate = updateEvent.startDate
+            event.endDate = updateEvent.endDate
+            event.contact = updateEvent.contact
+            event.attended = updateEvent.attended
+            event.activities = updateEvent.activities
+
+            return userEvent.save()
+        })    
+        .then(() => { 
+            res.redirect(`/users/${userId}/events`)
+        })
+        .catch((error) => {
+            console.log(error)
+        })
 })
 
 router.get('/:eventId/delete', (req, res) => {
     const userId = req.params.userId
     const eventId = req.params.eventId
-  
+
     Users.findById(userId)
-      .then((user) => {
-        user.events.id(eventId).remove()
-        return user.save()
-      })
-      .then(() => {
-        res.redirect(`/users/${userId}/events/`)
-      })
-      .catch((error) => {
-        console.log(error)
-      })
-  })
+        .then((user) => {
+            user.events.id(eventId).remove()
+            return user.save()
+        })
+        .then(() => {
+            res.redirect(`/users/${userId}/events/`)
+        })
+        .catch((error) => {
+            console.log(error)
+        })
+})
 
 module.exports = router
 
