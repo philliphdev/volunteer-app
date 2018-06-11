@@ -18,9 +18,7 @@
           </ul>
         </div>
         <div class="card-action">
-          <form action="/users/{{event._id}}?_method=DELETE" method="POST">
-            <button class="waves-effect waves-light red lighten-2 btn" type="submit">Delete Event</button>
-          </form>
+          <a href="/users/{{userId}}/events/{{event._id}}/delete">Delete</a>
         </div>
       </div>
     </div>

@@ -49,7 +49,8 @@ router.get('/:id', (req, res) => {
             const event = user.events.id(eventId)
             // console.log(eventId)
             console.log(event)
-            res.render('events/show', { event })
+            res.render('events/show', { event,
+            userId })
         })
         .catch((error) => {
             console.log(error)
@@ -76,16 +77,22 @@ router.put('/:id', (req, res) => {
     })
 })
 
-// Delete Route
-router.delete('/:id/events', (req, res) => {
-    Users.findById(req.params.userId)
-        .then((newEvent) => {
-            newEvent.events.push(newEvent)
-        })
-        // .then((newEvent.events.remove) => {
-        //     newEvent.events.push(newEventEntry)
-        // })
-})
+router.get('/:eventId/delete', (req, res) => {
+    const userId = req.params.userId
+    const eventId = req.params.eventId
+  
+    Users.findById(userId)
+      .then((user) => {
+        user.events.id(eventId).remove()
+        return user.save()
+      })
+      .then(() => {
+        res.redirect(`/users/${userId}/events/`)
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+  })
 
 module.exports = router
 
