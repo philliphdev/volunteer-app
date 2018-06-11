@@ -1,29 +1,34 @@
-<h1>Create New Activity</h1>
+<div class="page">
+  <div class="pageForms">
 
-<form action="/activities" method="POST">
-  <div>
-    <label for="name">Name</label>
-    <input type="text" name="name" value="{{newActivity.name}}" />
+    <h3>Create New Activity</h3>
+
+    <form action="/activities" method="POST">
+      <div>
+        <label for="name">Name</label>
+        <input type="text" name="name" placeholder="name" />
+      </div>
+      <div>
+        <label for="description">Description</label>
+        <input type="text" name="description" placeholder="description" />
+      </div>
+      <div>
+        <label for="location">Location</label>
+        <input type="text" name="location" placeholder="location" />
+      </div>
+      <div>
+        <label for="supplies">Supplies</label>
+        <input type="text" name="supplies" placeholder="supplies" />
+      </div>
+      <div>
+        <label for="contact">Contact</label>
+        <input type="text" name="contact" placeholder="contact" />
+      </div>
+      <div>
+        <label for="hours">Hours</label>
+        <input type="text" name="hours" placeholder="hours" />
+      </div>
+      <button type="submit">Create Activity</button>
+    </form>
   </div>
-  <div>
-    <label for="description">Description</label>
-    <input type="text" name="description" value="{{newActivity.description}}" />
-  </div>
-  <div>
-    <label for="location">Location</label>
-    <input type="location" name="location" value="{{newActivity.location}}"/>
-  </div>
-  <div>
-    <label for="supplies">Supplies</label>
-    <input type="text" name="supplies" value="{{newActivity.supplies}}" />
-  </div>
-  <div>
-    <label for="contact">Contact</label>
-    <input type="text" name="contact" value="{{newActivity.contact}}" />
-  </div>
-    <div>
-    <label for="hours">Hours</label>
-    <input type="text" name="hours" value="{{newActivity.hours}}" />
-  </div>
-  <button type="submit">Creates Activity</button>
-</form>
+</div>

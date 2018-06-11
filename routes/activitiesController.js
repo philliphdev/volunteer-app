@@ -34,13 +34,17 @@ router.get('/new', (req, res) => {
 // Create Route
 router.post('/', (req, res) => {
     const newActivityEntry = new Activities(req.body)
-    Users.findById(req.params.userId)
+    const eventId = req.params.eventId
+    const userId = req.params.userId
+    const activityId = req.params.id
+    Users.findById(userId)
         .then((newActivity) => {
             newActivity.activity.push(newActivity)
             return newActivity.save()
         })
         .then(() => {
-            res.redirect(`/users/${req.params.userId}/activities`)
+            console.log("line 46 " + eventId)
+            res.redirect(`/users/${userId}/events/${eventId}`)
         })
 })
 
