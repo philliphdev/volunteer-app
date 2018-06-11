@@ -19,6 +19,7 @@ router.get('/', (req, res, next) => {
 
 // New Route
 router.get('/new', (req, res) => {
+    // const userId = req.params.userId
     res.render('events/new', {
         userId: req.params.userId
     })
@@ -27,14 +28,16 @@ router.get('/new', (req, res) => {
 // Create Route
 router.post('/', (req, res) => {
     const newEventEntry = new Events(req.body)
-    Users.findById(req.params.userId)
+    const userId = req.params.userId
+    Users.findById(userId)
         .then((newEvent) => {
             newEvent.events.push(newEventEntry)
             return newEvent.save()
         })
         .then(() => {
-            res.redirect(`/users/${req.params.userId}/events`)
+            res.redirect(`/users/${userID}/events`)
         })
+        .catch((error) => res.send(error))
 })
 
 // Show Route
