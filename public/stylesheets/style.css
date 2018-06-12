@@ -53,6 +53,7 @@ box-shadow: none;
 -webkit-box-shadow: none;
 }
 
+
 .page {
   display: block;
   width: 100%;
@@ -64,4 +65,9 @@ box-shadow: none;
 
 a {
   color: #00B7FF;
+}
+
+.card.horizontal .card-image{
+  max-height: 280px;
+  max-width: 280px;;
 }

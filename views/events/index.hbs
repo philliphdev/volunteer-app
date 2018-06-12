@@ -1,32 +1,37 @@
 <h3>Events</h3>
-<ul>
-  {{#each listOfEvents}}
-  <div class="eventgrid">
-    <div class="col s12 m7">
-      <h4 class="header">{{name}}</h4>
-      <div class="card horizontal">
-        <div class="card-image">
-          <img src="{{photo}}">
-        </div>
-        <div class="card-stacked">
-          <div class="card-content">
-            <li>
-              <p>Name: {{description}}</p>
-              <p>Location: {{location}}</p>
-              <p>Start Date: {{startDate}}</p>
-              <p>End Date: {{endDate}}</p>
-              <p>Contact: {{contact}}</p>
-              <p>Attended: {{attended}}</p>
-            </li>
-          </div>
-          <div class="card-action">
-            <a href="/users/{{../userId}}/events/{{_id}}">Show Event</a>
-            <a href="/users/{{../userId}}/events/{{_id}}/edit">Edit Event</a>
-            <a class="waves-effect waves-light red lighten-8" href="/users/{{../userId}}/events/{{_id}}/delete">Delete</a>
+<div class="userCardsContainer">
+  <div class="userCards">
+    <ul>
+      {{#each listOfEvents}}
+      <div>
+        <div class="col s12 m7">
+          <h4 class="header">{{name}}</h4>
+          <div class="card horizontal">
+            <div class="card-image">
+              <img src="{{photo}}">
+            </div>
+            <div class="card-stacked">
+              <div class="card-content">
+                <li>
+                  <li>Name: {{description}}</li>
+                  <li>Location: {{location}}</li>
+                  <li>Start Date: {{startDate}}</li>
+                  <li>End Date: {{endDate}}</li>
+                  <li>Contact: {{contact}}</li>
+                  <li>Attended: {{attended}}</li>
+                </li>
+              </div>
+              <div class="card-action">
+                <a href="/users/{{../userId}}/events/{{_id}}">Show Event</a>
+                <a href="/users/{{../userId}}/events/{{_id}}/edit">Edit Event</a>
+                <a class="waves-effect waves-light red lighten-8" href="/users/{{../userId}}/events/{{_id}}/delete">Delete</a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    {{/each}}
-</ul>
+      {{/each}}
+    </ul>
+  </div>
+</div>
 <a class="green btn" href="/users/{{userId}}/events/new">Add Event</a>
