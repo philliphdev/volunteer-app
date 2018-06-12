@@ -9,6 +9,7 @@ const eventsSchema = new Schema({
     endDate: Date,
     contact: String,
     attended: String,
+    photo: String,
     activities: [activitySchema]
 })
 

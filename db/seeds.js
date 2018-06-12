@@ -22,6 +22,7 @@ Users.remove()
       location: "3rd grade computer lab",
       supplies: "Almond Butter, Jelly, Bread, Plastic Knife and 1 Robot costume ",
       contact: "Mrs. Jones 3rd Grade Teacher",
+      photo: "http://www.geocities.ws/smyrnavolunteers/Keep%20Smyrna%20Beautiful/Highlands%20Day%20of%20Caring/slides/IMG_9851.JPG",
       hours: 5
     })
     const activity2 = new Activity({
@@ -30,6 +31,7 @@ Users.remove()
       location: "3rd grade room 222 ",
       supplies: "Math Flash Cards",
       contact: "Mrs. Jones 3rd Grade Teacher",
+      photo: "http://www.geocities.ws/smyrnavolunteers/Keep%20Smyrna%20Beautiful/Highlands%20Day%20of%20Caring/slides/IMG_1050.JPG",
       hours: 3
     })
     const activity3 = new Activity({
@@ -38,6 +40,7 @@ Users.remove()
       location: "3rd grade girls bathroom",
       supplies: "Pink paint, Paint brushes, Paint trays ",
       contact: "Mrs. Jones 3rd Grade Teacher",
+      photo: "http://www.geocities.ws/smyrnavolunteers/Keep%20Smyrna%20Beautiful/Highlands%20Day%20of%20Caring/slides/ECCC%20Highlands%20Event%20217.JPG",
       hours: 3
     })
     const event1 = new Events({
@@ -48,6 +51,7 @@ Users.remove()
       endDate: 8 / 1 / 2018,
       contact: "Principal Curry",
       attended: "Yes",
+      photo: "http://www.geocities.ws/smyrnavolunteers/Keep%20Smyrna%20Beautiful/Highlands%20Day%20of%20Caring/slides/IMG_1059.JPG",
       activities: [activity1, activity2]
     })
     const event2 = new Events({
@@ -58,6 +62,7 @@ Users.remove()
       endDate: 8 / 1 / 2018,
       contact: "Principal Curry",
       attended: "No",
+      photo: "http://www.geocities.ws/smyrnavolunteers/Keep%20Smyrna%20Beautiful/Highlands%20Day%20of%20Caring/slides/IMG_9889.JPG",
       activities: [activity1, activity2]
     })
 
@@ -69,6 +74,7 @@ Users.remove()
       endDate: 8 / 2 / 2018,
       contact: "Assistant Principal Vince",
       attended: "Yes",
+      photo: "http://www.geocities.ws/smyrnavolunteers/Keep%20Smyrna%20Beautiful/Highlands%20Day%20of%20Caring/slides/IMG_9875.JPG",
       activities: [activity3]
     })
 
