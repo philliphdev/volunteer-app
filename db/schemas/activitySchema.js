@@ -4,10 +4,6 @@ const activitySchema = new Schema ({
         type: String,
         required: true
     },
-    photo: {
-        type: String,
-        default: "http://vannw.org/wp-content/uploads/2017/04/volunteer-thanks.jpg"
-    },
     description: {
         type: String,
         required: true
@@ -23,6 +19,10 @@ const activitySchema = new Schema ({
     contact: {
         type: String,
         required: true
+    },
+    photo: {
+        type: String,
+        default: "http://vannw.org/wp-content/uploads/2017/04/volunteer-thanks.jpg"
     }
 })
 

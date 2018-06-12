@@ -38,12 +38,14 @@ router.post('/', (req, res) => {
     const newActivityEntry = new Activity(req.body)
     const eventId = req.params.eventId
     const userId = req.params.userId
+    console.log('line 41 ' + userId)
     Users.findById(userId)
-        .then((user) => {
-            user.activities.push(newActivityEntry)
-            return user.save()
+        .then((newActivity) => {
+            const event = userActivity.events.id(eventId)
+            const activity = event.activities.id(activityId)
+            return newActivity.save()
         })
-        .then(() => {
+        .then((user) => {
             res.redirect(`/users/${userId}/events/${eventId}`)
         })
 })
