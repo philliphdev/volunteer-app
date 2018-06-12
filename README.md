@@ -8,7 +8,7 @@ For this project I selected to write an app to track volunteer activities. When 
 Volunteer Tracking App hosted on Heroku:
 
 - [Heroku](https://salty-hamlet-97817.herokuapp.com/)
-- [Trello](https://trello.com/b/CKwy4RNZ/volunteer-tracking)
+- [Trello](https://trello.com/b/CKwy4RNZ)
 
 Links to ERD and wireframes:
 

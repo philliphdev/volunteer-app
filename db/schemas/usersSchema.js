@@ -2,21 +2,12 @@ const Schema = require('mongoose').Schema
 const eventsSchema = require('./eventsSchema')
 
 const userSchema = new Schema ({
-    name: {
-        type: String,
-        required: true
-    },
+    name: String,
     age: Number,
-    email: {
-        type: String,
-        required: true
-    },
+    email: String,
     phone: Number,
     contactMethod: String,
-    photo: {
-        type: String,
-        default: "https://www.fillmurray.com/g/220/220"
-    },
+    photo: String,
     totalHours: Number,
     events: [eventsSchema]
 })
