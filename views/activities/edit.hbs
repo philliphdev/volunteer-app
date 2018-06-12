@@ -1,29 +1,32 @@
-<h1>Edit Activity</h1>
-
-<form action="/activities/{{editActivity._id}}?_method=PUT" method="POST">
-  <div>
-    <label for="name">Name</label>
-    <input type="text" name="name" value="{{editActivity.name}}" />
+<div class="page">
+  <div class="pageForms">
+    <h3>Edit Activity</h3>
+    <form action="/users/{{userId}}/events/{{eventId}}/activities/{{activity._id}}?_method=PUT" method="POST">
+      <div>
+        <label for="name">Name</label>
+        <input type="text" name="name" value="{{activity.name}}" />
+      </div>
+      <div>
+        <label for="description">Description</label>
+        <input type="text" name="description" value="{{activity.description}}" />
+      </div>
+      <div>
+        <label for="location">Location</label>
+        <input type="text" name="location" value="{{activity.location}}" />
+      </div>
+      <div>
+        <label for="supplies">Supplies</label>
+        <input type="text" name="supplies" value="{{activity.supplies}}" />
+      </div>
+      <div>
+        <label for="contact">Contact</label>
+        <input type="text" name="contact" value="{{activity.contact}}" />
+      </div>
+      <div>
+        <label for="photo">Photo</label>
+        <input type="text" name="photo" value="{{activity.photo}}" />
+      </div>
+      <button type="submit">Save Activity</button>
+    </form>
   </div>
-  <div>
-    <label for="description">Description</label>
-    <input type="text" name="description" value="{{editActivity.description}}" />
-  </div>
-  <div>
-    <label for="location">Location</label>
-    <input type="location" name="location" value="{{editActivity.location}}"/>
-  </div>
-  <div>
-    <label for="supplies">Supplies</label>
-    <input type="text" name="supplies" value="{{editActivity.supplies}}" />
-  </div>
-  <div>
-    <label for="contact">Contact</label>
-    <input type="text" name="contact" value="{{editActivity.contact}}" />
-  </div>
-    <div>
-    <label for="photo">Photo</label>
-    <input type="text" name="photo" value="{{editActivity.photo}}" />
-  </div>
-  <button type="submit">Save Activity</button>
-</form>
+</div>

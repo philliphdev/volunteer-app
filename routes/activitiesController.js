@@ -26,24 +26,24 @@ router.get('/', (req, res, next) => {
 
 // New Route
 router.get('/new', (req, res) => {
+    const eventId = req.params.eventId
+    const userId = req.params.userId
     res.render('activities/new', {
-        userId: req.params.userId
+        userId, eventId 
     })
 })
 
 // Create Route
 router.post('/', (req, res) => {
-    const newActivityEntry = new Activities(req.body)
+    const newActivityEntry = new Activity(req.body)
     const eventId = req.params.eventId
     const userId = req.params.userId
-    const activityId = req.params.id
     Users.findById(userId)
-        .then((newActivity) => {
-            newActivity.activity.push(newActivity)
-            return newActivity.save()
+        .then((user) => {
+            user.activities.push(newActivityEntry)
+            return user.save()
         })
         .then(() => {
-            console.log("line 46 " + eventId)
             res.redirect(`/users/${userId}/events/${eventId}`)
         })
 })
@@ -63,19 +63,47 @@ router.get('/:id', (req, res) => {
 
 // Edit Route
 router.get('/:id/edit', (req, res) => {
-    Users.findById(req.params.UserId)
-        .then((editActivity) => {
-            res.render('activities/edit', { editActivity: editActivity })
+    const userId = req.params.userId
+    const eventId = req.params.eventId
+    const activityId = req.params.id
+    Users.findById(userId)
+        .then(user => {
+            const event = user.events.id(eventId)
+            const activity = event.activities.id(activityId)
+            console.log("edit act " + activity + eventId + userId)
+            res.render('activities/edit', { activity, eventId, userId })
         })
 })
 
+
 // Update Route
 router.put('/:id', (req, res) => {
-    Users.findByIdAndUpdate(req.params.Id, req.body, { new: true }).then(() => {
-        // res.redirect(`/users/${req.params.id}`)
-        res.redirect(`/activities/${req.params.id}`)
+    const userId = req.params.userId
+    const eventId = req.params.eventId
+    const activityId = req.params.id
+    const updateActivity = req.body
+    Users.findByIdAndUpdate(userId)
+    .then((userActivity) => {
+        const event = userActivity.events.id(eventId)
+        const activity = event.activities.id(activityId)
+       
+        activity.name = updateActivity.name
+        activity.description = updateActivity.description
+        activity.location = updateActivity.location
+        activity.supplies = updateActivity.supplies
+        activity.contact = updateActivity.contact
+        activity.photo = updateActivity.photo
+      
+        return userActivity.save()
+    })
+    .then(() => {
+        res.redirect(`/users/${userId}/events/${eventId}/activities`)
+    })
+    .catch((error) => {
+        console.log(error)
     })
 })
+
 
 // Delete Route
 router.delete('/:id/activities', (req, res) => {
