@@ -34,8 +34,6 @@ router.post('/', (req, res) => {
             return newEvent.save()
         })
         .then((user) => {
-            console.log("line 37 " + userId)
-            console.log('hello there')
             res.redirect(`/users/${userId}`)
         })
         .catch((error) => res.send(error))

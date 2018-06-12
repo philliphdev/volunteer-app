@@ -8,12 +8,9 @@ const Activity = require('../models/Activity')
 router.get('/', (req, res, next) => {
     const eventId = req.params.eventId
     const userId = req.params.userId
-    console.log(userId)
-    console.log(eventId)
     Users.findById(userId)
         .then((user) => {
             const event = user.events.id(eventId)
-            console.log("line 16 ", event)
             res.render('activities/index', {
                 event,
                 userId,
@@ -29,7 +26,7 @@ router.get('/new', (req, res) => {
     const eventId = req.params.eventId
     const userId = req.params.userId
     res.render('activities/new', {
-        userId, eventId 
+        userId, eventId
     })
 })
 
@@ -38,7 +35,6 @@ router.post('/', (req, res) => {
     const newActivityEntry = new Activity(req.body)
     const eventId = req.params.eventId
     const userId = req.params.userId
-    console.log('line 41 ' + userId)
     Users.findById(userId)
         .then((newActivity) => {
             const event = userActivity.events.id(eventId)
@@ -72,7 +68,6 @@ router.get('/:id/edit', (req, res) => {
         .then(user => {
             const event = user.events.id(eventId)
             const activity = event.activities.id(activityId)
-            console.log("edit act " + activity + eventId + userId)
             res.render('activities/edit', { activity, eventId, userId })
         })
 })
@@ -85,25 +80,25 @@ router.put('/:id', (req, res) => {
     const activityId = req.params.id
     const updateActivity = req.body
     Users.findByIdAndUpdate(userId)
-    .then((userActivity) => {
-        const event = userActivity.events.id(eventId)
-        const activity = event.activities.id(activityId)
-       
-        activity.name = updateActivity.name
-        activity.description = updateActivity.description
-        activity.location = updateActivity.location
-        activity.supplies = updateActivity.supplies
-        activity.contact = updateActivity.contact
-        activity.photo = updateActivity.photo
-      
-        return userActivity.save()
-    })
-    .then(() => {
-        res.redirect(`/users/${userId}/events/${eventId}/activities`)
-    })
-    .catch((error) => {
-        console.log(error)
-    })
+        .then((userActivity) => {
+            const event = userActivity.events.id(eventId)
+            const activity = event.activities.id(activityId)
+
+            activity.name = updateActivity.name
+            activity.description = updateActivity.description
+            activity.location = updateActivity.location
+            activity.supplies = updateActivity.supplies
+            activity.contact = updateActivity.contact
+            activity.photo = updateActivity.photo
+
+            return userActivity.save()
+        })
+        .then(() => {
+            res.redirect(`/users/${userId}/events/${eventId}/activities`)
+        })
+        .catch((error) => {
+            console.log(error)
+        })
 })
 
 
@@ -113,9 +108,6 @@ router.delete('/:id/activities', (req, res) => {
         .then((deleteActivity) => {
             deleteActivity.activities.push(deleteActivity)
         })
-    // .then((newEvent.events.remove) => {
-    //     newEvent.events.push(newEventEntry)
-    // })
 })
 
 module.exports = router
